@@ -1,12 +1,11 @@
-import std.conv:to;
-import std.datetime;
+import std.conv : to;
+import std.datetime.stopwatch;
 import std.stdio;
 
 class BigClass
 {
     /* this sequence is used to generate at compile
        time the following code:
-
        int a0;
        int a1;
        ...
@@ -26,13 +25,12 @@ void get_a0(BigClass a)
 
 void main()
 {
-    auto stattime = Clock.currTime();
-
+    StopWatch sw;
+    sw.start();
     BigClass s = new BigClass();
     for(int i = 0; i < 100000; i++)
         get_a0(s);
-
-    auto endttime = Clock.currTime();
-    auto duration = endttime - stattime;
-    writeln("Hello Duration ==> ", duration);
+    sw.stop();
+    long exec_ms = sw.peek().total!"usecs";
+    writeln(exec_ms);
 }

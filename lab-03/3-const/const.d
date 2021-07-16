@@ -8,10 +8,10 @@ void foo()
     p = &a;   
 }
 
-void boo()
+void boo(ref int* s)
 {
     int b = 9;
-    p = &b;
+    s = &b;
 }
 
 void main()
@@ -21,6 +21,6 @@ void main()
     const int* s = p;
     //s = &b;   --> error: cannot modify const exp s;
     writeln(*s);
-    boo();
+    boo(p);
     writeln(*s);
 }

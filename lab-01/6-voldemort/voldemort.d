@@ -1,16 +1,21 @@
-private struct Result
-{
-    int a;
-    string b;
-}
+//private struct Result
+//{
+//    int a;
+//    string b;
+//}
 
-Result fun(int a, string b)
+auto fun(int a, string b)
 {
+    struct Result
+    {
+        int a;
+        string b;
+    }
     Result res = Result(a, b);
     return res;
 }
 
 void main()
 {
-    Result k = fun(1, "foo");
+    auto k = fun(1, "foo");
 }

@@ -10,6 +10,6 @@ struct A
 
 void main()
 {
-    immutable A a;
+    A a;
     a.foo();
 }

@@ -9,7 +9,7 @@ void func(T)(T a)
         takeRef(a);
 }
 
-void main()
+void main() @safe
 {
     func(2);
     func("asd");

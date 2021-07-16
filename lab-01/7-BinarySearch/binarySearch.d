@@ -1,3 +1,5 @@
+import std.stdio;
+
 int binarySearch(int[] arr, int l, int r, int x)
 {
     if (r > l)
@@ -23,4 +25,13 @@ void main()
     int[] arr = [1, 2, 4, 5, 7, 9];
     auto pos = arr.binarySearch(0, cast(int)arr.length, 2);
     writeln(pos);
+}
+
+unittest 
+{
+    int[] arr = [1, 2, 4, 5, 7, 9];
+    assert(arr.binarySearch(0, 0, 1) == -1);
+    assert(arr.binarySearch(0, cast(int)arr.length, 2) == 1);
+    //assert(arr.binarySearch(0, cast(int)arr.length, 2) == 2);
+    //assert(arr.binarySearch(0, 5, 4) == 0);
 }
